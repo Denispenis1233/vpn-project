@@ -23,6 +23,15 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
 
+      - name: Debug: Flutter doctor
+        run: flutter doctor -v
+
+      - name: Debug: Environment info
+        run: |
+          echo PATH=$Env:PATH
+          flutter --version
+          where msbuild || echo 'msbuild not found'
+
       - name: Build Windows release
         run: flutter build windows --release
 
