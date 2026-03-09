@@ -1,0 +1,32 @@
+# Flutter/Dart
+.dart_tool/
+.packages
+pubspec.lock
+build/
+/.idea/
+.vscode/
+*.iml
+**/ios/Flutter/Flutter.framework
+
+# macOS
+.DS_Store
+
+# Windows
+**/windows/runner/Release/
+**/windows/runner/Debug/
+
+# Android
+.gradle/
+/.gradle/
+/local.properties
+
+# Generated files
+.flutter-plugins
+.flutter-plugins-dependencies
+
+# Server configs
+/server/config/
+
+# Temp files
+*.log
+*.tmp
