@@ -23,21 +23,11 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
 
-      - name: Debug: Flutter doctor
-        run: flutter doctor -v
-
-      - name: Debug: Environment info
-        run: |
-          echo PATH=$Env:PATH
-          flutter --version
-          where msbuild || echo 'msbuild not found'
-
       - name: Build Windows release
         run: flutter build windows --release
 
       - name: Zip Release
-        run: |
-          powershell -Command "Compress-Archive -Path build\windows\runner\Release\* -DestinationPath release-windows.zip -Force"
+        run: powershell -Command "Compress-Archive -Path build\windows\runner\Release\* -DestinationPath release-windows.zip -Force"
 
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
