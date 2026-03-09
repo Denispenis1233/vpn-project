@@ -22,20 +22,19 @@ jobs:
         run: flutter config --enable-windows-desktop
 
       - name: Install dependencies
-          working-directory: flutter-app
-          run: flutter pub get
+        working-directory: flutter-app
+        run: flutter pub get
 
       - name: Build Windows release
-          working-directory: flutter-app
-          run: flutter build windows --release
+        working-directory: flutter-app
+        run: flutter build windows --release
 
       - name: Zip Release
-          working-directory: flutter-app
-          run: powershell -Command "Compress-Archive -Path build\\windows\\runner\\Release\\* -DestinationPath release-windows.zip -Force"
+        working-directory: flutter-app
+        run: powershell -Command "Compress-Archive -Path 'build/windows/runner/Release/*' -DestinationPath release-windows.zip -Force"
 
       - name: Upload build artifact
-        - name: Upload build artifact
-          uses: actions/upload-artifact@v4
-          with:
-           name: vpn_app_windows_release
-           path: flutter-app\release-windows.zip
+        uses: actions/upload-artifact@v4
+        with:
+          name: vpn_app_windows_release
+          path: flutter-app/release-windows.zip
